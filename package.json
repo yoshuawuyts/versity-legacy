@@ -1,0 +1,30 @@
+{
+  "name": "versity",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Social learning",
+  "main": "server/index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoshuawuyts/versity.git"
+  },
+  "keywords": [
+    "social",
+    "learning"
+  ],
+  "author": "Yoshua Wuyts <i@yoshuawuyts.com>",
+  "license": "none",
+  "bugs": {
+    "url": "https://github.com/yoshuawuyts/versity/issues"
+  },
+  "homepage": "https://github.com/yoshuawuyts/versity"
+}

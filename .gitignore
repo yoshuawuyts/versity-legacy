@@ -1,0 +1,22 @@
+# general files
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+# node
+pids
+logs
+results
+
+# npm
+npm-debug.log
+node_modules
+
+# project
+build
+coverage
