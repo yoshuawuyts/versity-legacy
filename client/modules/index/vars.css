@@ -1,0 +1,24 @@
+/**
+ * Colors
+ *
+ * All colors defined here will be preprocessed
+ * using Myth (myth.io) for legacy support. 
+ * HSLA() syntax makes it easier to determine 
+ * what color is being used. HSL() syntax is 
+ * neglected for consistency.
+ *
+ * TODO: talk to designers about the amount of
+ * shades of gray (<=50).
+ */
+
+:root {
+  var-white: hsla(0, 0%, 100%, 1);
+}
+
+/**
+ * Breakpoints
+ */
+
+/**
+ * Font sizes
+ */

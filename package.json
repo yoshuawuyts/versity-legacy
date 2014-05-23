@@ -1,30 +1,43 @@
 {
   "name": "versity",
   "private": true,
-  "version": "0.0.0",
   "description": "Social learning",
-  "main": "server/index.js",
-  "directories": {
-    "doc": "docs",
-    "test": "test"
-  },
-  "dependencies": {},
-  "devDependencies": {},
+  "main": "server/index/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --harmony server/index/index.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/yoshuawuyts/versity.git"
   },
-  "keywords": [
-    "social",
-    "learning"
-  ],
   "author": "Yoshua Wuyts <i@yoshuawuyts.com>",
   "license": "none",
   "bugs": {
     "url": "https://github.com/yoshuawuyts/versity/issues"
   },
-  "homepage": "https://github.com/yoshuawuyts/versity"
+  "homepage": "https://github.com/yoshuawuyts/versity",
+  "dependencies": {
+    "envify": "^1.2.1",
+    "koa": "^0.6.1",
+    "koa-compose": "^2.3.0",
+    "koa-compress": "^1.0.7",
+    "koa-helmet": "0.0.1",
+    "koa-logger": "^1.2.1",
+    "koa-response-time": "^1.0.2",
+    "koa-router": "^3.1.4",
+    "koa-static": "^1.4.5",
+    "react": "^0.10.0"
+  },
+  "devDependencies": {
+    "browserify": "^4.1.5",
+    "debug": "^0.8.1",
+    "gulp": "^3.6.2",
+    "gulp-concat": "^2.2.0",
+    "gulp-livereload": "^1.5.0",
+    "gulp-myth": "^0.3.1",
+    "mocha": "^1.18.2",
+    "should": "^3.3.1",
+    "vinyl-source-stream": "^0.1.1"
+  }
 }

@@ -1,0 +1,21 @@
+/**
+ * Body text
+ */
+
+html,body,p,a {
+  font-family: Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-size: 16px;
+}
+
+/**
+ * Modifiers
+ *
+ * We're using .bold rather than strong
+ * due to the semantic meaning for screen
+ * readers. .bold should be used for non-
+ * paragraph text only.
+ */
+
+.bold {
+  font-weight: bold;
+}
