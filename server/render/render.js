@@ -13,6 +13,7 @@ var index = require('../../client/modules/index/index');
  */
 
 var app = koa();
+app.use(router(app));
 
 /**
  * Export 'app'.
@@ -21,27 +22,25 @@ var app = koa();
 module.exports = app;
 
 /**
- * Render index.html
+ * Render
  */
 
-app.use(router(app));
-
 app.get('/', function* (next) {
-  this.body = react.renderComponentToString(index({path: '/'}));
+  this.body = react.renderComponentToString(index({path: this.path}));
 });
 
 app.get('/search', function* (next) {
-  this.body = react.renderComponentToString(index({path: '/search'}));
+  this.body = react.renderComponentToString(index({path: this.path}));
 });
 
 app.get('/settings', function* (next) {
-  this.body = react.renderComponentToString(index({path: '/settings'}));
+  this.body = react.renderComponentToString(index({path: this.path}));
 });
 
 app.get('/:user', function* (next) {
-  this.body = react.renderComponentToString(index({path: '/:user'}));
+  this.body = react.renderComponentToString(index({path: this.path}));
 });
 
 app.get('/:user/:course', function* (next) {
-  this.body = react.renderComponentToString(index({path: '/:user/:course'}));
+  this.body = react.renderComponentToString(index({path: this.path}));
 });
