@@ -9,13 +9,10 @@ var compress = require('koa-compress');
 var compose = require('koa-compose');
 var logger = require('koa-logger');
 var helmet = require('koa-helmet');
-var serve = require('koa-static');
-var http = require('http');
 var koa = require('koa');
 
 var assets = require('../assets/assets');
 var render = require('../render/render');
-var vhost = require('../vhost/vhost');
 var api = require('../api/api');
 
 /**
@@ -44,15 +41,12 @@ app.use(function *(next) {
 
     case 'api': 
       return yield compose(api.middleware).call(this, next);
-      break;
 
     case 'assets':
       return yield compose(assets.middleware).call(this, next);
-      break;
 
     default:
       return yield compose(render.middleware).call(this, next);
-      break;
   }
 });
 

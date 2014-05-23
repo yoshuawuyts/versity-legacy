@@ -25,5 +25,5 @@ module.exports = app;
  */
 
 app.use(function *(next) {
-  this.body = react.renderComponentToString(index());
+  this.body = react.renderComponentToString(index({path: '/'}));
 });
