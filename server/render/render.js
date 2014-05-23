@@ -24,6 +24,24 @@ module.exports = app;
  * Render index.html
  */
 
-app.use(function *(next) {
+app.use(router(app));
+
+app.get('/', function* (next) {
   this.body = react.renderComponentToString(index({path: '/'}));
+});
+
+app.get('/search', function* (next) {
+  this.body = react.renderComponentToString(index({path: '/search'}));
+});
+
+app.get('/settings', function* (next) {
+  this.body = react.renderComponentToString(index({path: '/settings'}));
+});
+
+app.get('/:user', function* (next) {
+  this.body = react.renderComponentToString(index({path: '/:user'}));
+});
+
+app.get('/:user/:course', function* (next) {
+  this.body = react.renderComponentToString(index({path: '/:user/:course'}));
 });
