@@ -4,12 +4,12 @@
  * Module dependencies
  */
 
+var spawn = require('child_process').spawn;
 var program = require('commander');
+var glog = require('gulp-api-log');
 var fs = require('fs');
 
-var glog = require('gulp-api-log');
 var gulp = require('../gulpfile.js');
-//var server = require('../server/index/index');
 
 /**
  * Options.
@@ -25,18 +25,15 @@ program.name = 'versity';
 /**
  * Start 'versity'.
  *
- * TODO: spawn separate process to throw harmony flags in the mix
- * https://github.com/Swatinem/perf-cpuprofile/blob/master/bin/perf-cpuprofile.js
- * http://stackoverflow.com/questions/20980222/run-a-node-shell-script-in-harmony-mode
+ * TODO: pass port / env arguments to process
  */
 
 program
   .command('start')
   .description('start server')
   .action(function() {
-    console.log('Environment: ' + program.environment);
-    console.log('Port: ' + program.port);
-    //server.listen(program.port);
+    var args = [ __dirname + '/../server/index/index.js' ].concat(process.argv.slice(2));
+    spawn(process.argv[0], ['--harmony'].concat(args), {stdio: [0,1,2]});
   });
 
 /**
