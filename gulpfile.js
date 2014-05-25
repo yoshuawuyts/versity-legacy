@@ -12,6 +12,12 @@ var myth = require('gulp-myth');
 var gulp = require('gulp');
 
 /**
+ * Exports
+ */
+
+module.exports = gulp;
+
+/**
  * Compile CSS
  *
  * Includes css files in the following order

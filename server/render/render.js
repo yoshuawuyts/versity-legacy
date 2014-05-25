@@ -44,3 +44,7 @@ app.get('/:user', function* (next) {
 app.get('/:user/:course', function* (next) {
   this.body = react.renderComponentToString(index({path: this.path}));
 });
+
+app.get('/404', function* (next) {
+  this.body = react.renderComponentToString(index({path: this.path}));
+});

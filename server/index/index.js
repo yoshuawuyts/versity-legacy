@@ -24,12 +24,18 @@ var PORT = process.env.port || 1337;
 var app = koa();
 
 /**
+ * Exports
+ */
+
+module.exports = app;
+
+/**
  * Middleware
  */
 
 if ('test' != process.env.NODE_ENV) app.use(logger());
 app.use(responseTime());
-app.use(compress());
+//app.use(compress());
 app.use(helmet.defaults());
 
 /**
@@ -54,6 +60,8 @@ app.use(function *(next) {
  * Start listening.
  */
 
-app.listen(PORT);
-console.log('Environment: ' + ENV);
-console.log('Port: ' + PORT);
+if (!module.parent) {
+  app.listen(PORT);
+  console.log('Environment: ' + ENV);
+  console.log('Port: ' + PORT);
+}
