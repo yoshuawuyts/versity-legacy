@@ -5,18 +5,19 @@
  */
 
 var program = require('commander');
-var gulp = require('../gulpfile.js');
 var fs = require('fs');
 
-var server = require('../server/index/index');
+var glog = require('gulp-api-log');
+var gulp = require('../gulpfile.js');
+//var server = require('../server/index/index');
 
 /**
  * Options.
  */
 
 program.version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
-  .option('-p, --port <port>', 'specify the port [1337]', '1337')
-  .option('-t, --task <task>', 'specify the gulp task [default]', 'default')
+  .option('-p, --port <port>', 'specify the server port [1337]', '1337')
+  .option('-t, --task <task>', 'specify the build task [default]', 'default')
   .option('-e, --environment <env>', 'specify the environment [development]', 'development');
 
 program.name = 'versity';
@@ -35,21 +36,31 @@ program
   .action(function() {
     console.log('Environment: ' + program.environment);
     console.log('Port: ' + program.port);
-    server.listen(program.port);
+    //server.listen(program.port);
   });
 
 /**
  * Build packages.
- *
- * TODO: add logging listeners via @contra - 
- * https://github.com/gulpjs/gulp/blob/master/bin/gulp.js#L102
  */
 
 program
   .command('build')
   .description('build assets')
   .action(function() {
+    glog(gulp);
     gulp.start(program.task);
+  });
+
+/**
+ * Watch assets
+ */
+
+program
+  .command('watch')
+  .description('rebuild assets on change')
+  .action(function() {
+    glog(gulp);
+    gulp.start('watch');
   });
 
 /**

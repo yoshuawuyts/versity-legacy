@@ -79,16 +79,5 @@ gulp.task('watch', function() {
 gulp.task('default', [
   'styles',
   'modules',
-  'assets',
-  'watch'
-]);
-
-/**
- * Deploy
- */
-
-gulp.task('deploy', [
-  'styles',
-  'modules',
   'assets'
 ]);
