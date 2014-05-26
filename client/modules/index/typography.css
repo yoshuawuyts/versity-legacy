@@ -1,19 +1,21 @@
 /**
- * Body text
+ * Set body text styles
+ *
+ * @selector html
+ * @selector body
+ * @selector p
+ * @selector a
  */
 
-html,body,p,a {
+html, body, p, a {
   font-family: Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
   font-size: 16px;
 }
 
 /**
- * Modifiers
+ * Text weight modifiers
  *
- * We're using .bold rather than strong
- * due to the semantic meaning for screen
- * readers. .bold should be used for non-
- * paragraph text only.
+ * @class .bold
  */
 
 .bold {
