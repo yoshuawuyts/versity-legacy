@@ -7,8 +7,23 @@ Installation instructions here
 ````
 
 ## Usage
-````
-print commander output here
+````bash
+Usage: versity [options] [command]
+
+  Commands:
+
+    start                  start server
+    build                  build assets
+    watch                  rebuild assets on change
+
+  Options:
+
+    -h, --help               output usage information
+    -V, --version            output the version number
+    -p, --port <port>        specify the server port [1337]
+    -t, --task <task>        specify the build task [default]
+    -e, --environment <env>  specify the environment [development]
+
 ````
 
 ## Development
