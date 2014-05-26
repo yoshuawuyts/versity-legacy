@@ -7,7 +7,7 @@ Installation instructions here
 ````
 
 ## Usage
-````bash
+````
 Usage: versity [options] [command]
 
   Commands:
