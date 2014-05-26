@@ -3,7 +3,9 @@ Social learning
 
 ## Installation
 ````
-Installation instructions here
+npm i -g versity
+versity build
+versity start
 ````
 
 ## Usage

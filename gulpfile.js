@@ -41,7 +41,7 @@ gulp.task('styles', function() {
  */
 
 gulp.task('modules', function() {
-  browserify('./client/modules/index/index.js')
+  browserify(__dirname + '/client/modules/index/index.js')
     .bundle({debug: true})
     .pipe(source('build.js'))
     .pipe(gulp.dest('build/'));

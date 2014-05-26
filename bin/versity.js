@@ -26,6 +26,7 @@ program.name = 'versity';
  * Start 'versity'.
  *
  * TODO: pass port / env arguments to process
+ * -> wrap index/index in a function that receives arguments
  */
 
 program
@@ -67,7 +68,7 @@ program
 program.parse(process.argv);
 
 /**
- * Help if no commands specified.
+ * Log help if no commands specified.
  */
 
 if (!process.argv[2]) {
