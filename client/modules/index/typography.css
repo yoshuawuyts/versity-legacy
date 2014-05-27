@@ -16,8 +16,19 @@ html, body, p, a {
  * Text weight modifiers
  *
  * @class .bold
+ * @class .semibold
+ * @class .normal
  */
 
 .bold {
   font-weight: bold;
 }
+
+.semibold {
+  font-weight: 500;
+}
+
+.normal {
+  font-weight: normal;
+}
+
