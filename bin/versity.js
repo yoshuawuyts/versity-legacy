@@ -15,7 +15,7 @@ var gulp = require('../gulpfile.js');
  * Options.
  */
 
-program.version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
+program
   .option('-p, --port <port>', 'specify the server port [1337]', '1337')
   .option('-t, --task <task>', 'specify the build task [default]', 'default')
   .option('-e, --environment <env>', 'specify the environment [development]', 'development');

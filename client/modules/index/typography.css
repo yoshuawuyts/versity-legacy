@@ -23,11 +23,9 @@ html, body, p, a {
 .bold {
   font-weight: bold;
 }
-
 .semibold {
   font-weight: 500;
 }
-
 .normal {
   font-weight: normal;
 }

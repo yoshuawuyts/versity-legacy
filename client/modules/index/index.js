@@ -2,6 +2,7 @@
  * Module dependencies
  */
 
+var detect = require('is-client');
 var react = require('react');
 var router = require('../router/router'); 
 
@@ -11,8 +12,11 @@ var router = require('../router/router');
 
 var PORT = process.env.port || 1337;
 var host = process.env.NODE_ENV == 'production' 
-  ? 'mywebsite.com' 
+  ? 'versity.co'
   : 'site.dev:' + PORT;
+var reactCDN = process.env.NODE_ENV == 'production' 
+  ? 'http://fb.me/react-0.10.0.min.js'
+  : 'http://fb.me/react-0.10.0.js'
 
 /**
  * Define react class.
@@ -22,7 +26,7 @@ var host = process.env.NODE_ENV == 'production'
 
 module.exports = react.createClass({
   displayName: 'Index',
-  render: function() {
+  render: function() {  
     return react.DOM.html({className: 'no-js'}, 
       react.DOM.head(null, 
         react.DOM.meta({charSet: 'utf-8'}),
@@ -31,6 +35,12 @@ module.exports = react.createClass({
         react.DOM.meta({
           name: 'viewport', 
           content: 'width=device-width, initial-scale=1'
+        }),
+        react.DOM.script({src: reactCDN}),
+        react.DOM.div({
+          dangerouslySetInnerHTML: {
+            __html: '<script>window.React || document.write("<script src=http://assets.site.dev/react.min.js")</script>'
+          }
         }),
         react.DOM.base({href: 'http://assets.' + host},
           react.DOM.link({rel: 'stylesheet', href:'/build.css'}),

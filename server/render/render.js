@@ -27,6 +27,7 @@ module.exports = app;
 
 app.get('/', function* (next) {
   this.body = react.renderComponentToString(index({path: this.path}));
+  console.log(this.body)
 });
 
 app.get('/search', function* (next) {
