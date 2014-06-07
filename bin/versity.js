@@ -57,7 +57,6 @@ program
   .command('watch')
   .description('rebuild assets on change')
   .action(function() {
-    glog(gulp);
     gulp.start('watch');
   });
 

@@ -23,7 +23,7 @@ module.exports = gulp;
  * Includes css files in the following order
  * /base/reset.css > /base/vars.css > /base/*.css > all other css files.
  */
-
+console.log(__dirname)
 gulp.task('styles', function() {
   gulp
     .src(['client/modules/index/reset.css',
@@ -33,7 +33,7 @@ gulp.task('styles', function() {
     ])
     .pipe(concat('build.css'))
     .pipe(myth())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest(__dirname + '/build/'));
 });
 
 /**
@@ -44,7 +44,7 @@ gulp.task('modules', function() {
   browserify(__dirname + '/client/modules/index/index.js')
     .bundle({debug: true})
     .pipe(source('build.js'))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest(__dirname + '/build/'));
 });
 
 /**
@@ -54,7 +54,7 @@ gulp.task('modules', function() {
 gulp.task('assets', function() {
   gulp
     .src(['client/modules/index/*.ttf'])
-    .pipe(gulp.dest('build/fonts/'));
+    .pipe(gulp.dest(__dirname + '/build/fonts/'));
 });
 
 /**
@@ -69,7 +69,7 @@ gulp.task('watch', function() {
   gulp.watch(['client/**/*.js', 'client/**/**/*.js', 'client/**/**/**/*.js'], ['modules']);
   gulp.watch('client/modules/**/*.css', ['styles']);
   gulp.watch('client/modules/**/*.tff', ['assets']);
-  gulp.watch(['build/**']).on('change', reload);
+  gulp.watch(['/build/**']).on('change', reload);
 });
 
 /**
