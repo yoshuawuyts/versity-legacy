@@ -24,17 +24,20 @@ program.name = 'versity';
 
 /**
  * Start 'versity'.
- *
- * TODO: pass port / env arguments to process
- * -> wrap index/index in a function that receives arguments
  */
 
 program
   .command('start')
   .description('start server')
   .action(function() {
-    var args = [ __dirname + '/../server/index/index.js' ].concat(process.argv.slice(2));
-    spawn(process.argv[0], ['--harmony'].concat(args), {stdio: [0,1,2]});
+    process.env.NODE_ENV = program.environment;
+    var args = [ __dirname + '/../server/index/index.js' ]
+      .concat(process.argv.slice(2));
+      
+    spawn(process.argv[0], ['--harmony'].concat(args), {
+      env: process.env,
+      stdio: [0,1,2]
+    });
   });
 
 /**
