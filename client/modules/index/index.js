@@ -2,9 +2,10 @@
  * Module dependencies
  */
 
-var detect = require('is-client');
 var react = require('react');
-var router = require('../router/router'); 
+
+var livereload = require('./livereload');
+var router = require('../router/router');
 
 /**
  * Initialize ENV variables.
@@ -48,7 +49,7 @@ module.exports = react.createClass({
           react.DOM.script({src:'/build.js'}),
           react.DOM.link({rel: 'shortcut icon', href: '/favicon.ico'})
         ),
-        livereload(),
+        livereload()
       ),
       router({path: this.props.path})
     )

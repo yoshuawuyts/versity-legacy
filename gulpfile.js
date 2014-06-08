@@ -13,6 +13,7 @@ var concat = require('gulp-concat');
 var uglify = require('uglifyify');
 var myth = require('gulp-myth');
 var gulp = require('gulp');
+var path = require('path');
 
 /**
  * Exports
@@ -26,8 +27,7 @@ module.exports = gulp;
  * Includes css files in the following order
  * /base/reset.css > /base/vars.css > /base/*.css > all other css files.
  */
- 
-console.log(__dirname)
+
 gulp.task('styles', function() {
   gulp
     .src(['client/modules/index/reset.css',
@@ -37,7 +37,7 @@ gulp.task('styles', function() {
     ])
     .pipe(concat('build.css'))
     .pipe(myth())
-    .pipe(gulp.dest(__dirname + '/build/'));
+    .pipe(gulp.dest(path.join(__dirname, '/build/')));
 });
 
 /**
@@ -45,12 +45,12 @@ gulp.task('styles', function() {
  */
 
 gulp.task('modules', function() {
-  browserify(__dirname + '/client/modules/index/index.js')
+  browserify(path.join(__dirname, '/client/modules/index/index.js'))
     .transform(envify({NODE_ENV: process.env.NODE_ENV}))
     .transform({global: true}, 'uglifyify')
     .bundle({debug: true})
     .pipe(source('build.js'))
-    .pipe(gulp.dest(__dirname + '/build/'));
+    .pipe(gulp.dest(path.join(__dirname, '/build/')));
 });
 
 /**
@@ -60,15 +60,15 @@ gulp.task('modules', function() {
 gulp.task('assets', function() {
   gulp
     .src(['client/modules/index/*.ttf'])
-    .pipe(gulp.dest(__dirname + '/build/fonts/'));
+    .pipe(gulp.dest(path.join(__dirname, '/build/fonts')));
 });
 
 gulp.task('lint', function() {
   gulp
-    .src(['modules/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'])
+    .src(['*.js', 'modules/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'])
       .pipe(eslint())
       .pipe(eslint.format());
-})
+});
 
 /**
  * Watch for file changes
@@ -91,6 +91,7 @@ gulp.task('watch', function() {
 
 gulp.task('default', [
   'styles',
+  'lint',
   'modules',
   'assets'
 ]);
