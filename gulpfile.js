@@ -7,10 +7,11 @@
 var source = require('vinyl-source-stream');
 var livereload = require('gulp-livereload');
 var browserify = require('browserify');
+var envify = require('envify/custom');
+var eslint = require('gulp-eslint');
 var concat = require('gulp-concat');
 var uglify = require('uglifyify');
 var myth = require('gulp-myth');
-var envify = require('envify/custom');
 var gulp = require('gulp');
 
 /**
@@ -61,6 +62,13 @@ gulp.task('assets', function() {
     .src(['client/modules/index/*.ttf'])
     .pipe(gulp.dest(__dirname + '/build/fonts/'));
 });
+
+gulp.task('lint', function() {
+  gulp
+    .src(['modules/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'])
+      .pipe(eslint())
+      .pipe(eslint.format());
+})
 
 /**
  * Watch for file changes

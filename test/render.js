@@ -1,3 +1,6 @@
+/*eslint no-unused-expressions: 0*/
+/*global describe, it*/
+
 /**
  * Module dependencies
  */

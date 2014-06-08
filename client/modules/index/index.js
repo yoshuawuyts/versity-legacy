@@ -22,6 +22,7 @@ var reactCDN = process.env.NODE_ENV == 'production'
  * Define react class.
  *
  * @props {String} markdown
+ * @return {ReactView}
  */
 
 module.exports = react.createClass({
@@ -46,7 +47,8 @@ module.exports = react.createClass({
           react.DOM.link({rel: 'stylesheet', href:'/build.css'}),
           react.DOM.script({src:'/build.js'}),
           react.DOM.link({rel: 'shortcut icon', href: '/favicon.ico'})
-        )
+        ),
+        livereload(),
       ),
       router({path: this.props.path})
     )

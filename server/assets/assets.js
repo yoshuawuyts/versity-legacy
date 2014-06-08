@@ -3,6 +3,7 @@
  */
 
 var serve = require('koa-static');
+var path = require('path');
 var koa = require('koa');
 
 /**
@@ -21,4 +22,4 @@ module.exports = app;
  * Render index.html
  */
 
-app.use(serve(__dirname + '/../../build'));
+app.use(serve(path.join(__dirname, '/../../build')));

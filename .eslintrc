@@ -27,6 +27,10 @@
     "new-cap": 2,
     "no-spaced-func": 2,
     "no-space-before-semi": 2,
-    "space-unary-word-ops": 2
+    "space-unary-word-ops": 2,
+    "quotes": [2, "single"],
+
+    // overwrite defaults
+    "strict": 0
   }
 }
