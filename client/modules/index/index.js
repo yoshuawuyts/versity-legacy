@@ -17,7 +17,7 @@ var host = process.env.NODE_ENV == 'production'
   : 'site.dev:' + PORT;
 var reactCDN = process.env.NODE_ENV == 'production' 
   ? 'http://fb.me/react-0.10.0.min.js'
-  : 'http://fb.me/react-0.10.0.js'
+  : 'http://fb.me/react-0.10.0.js';
 
 /**
  * Define react class.
@@ -54,6 +54,6 @@ module.exports = react.createClass({
         livereload(),
         router({path: this.props.path})
       )
-    )
+    );
   }
 });

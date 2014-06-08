@@ -65,7 +65,7 @@ gulp.task('assets', function() {
 
 gulp.task('lint', function() {
   gulp
-    .src(['*.js', 'client/**/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'])
+    .src(['*.js', 'client/**/**/*.js', 'data/*.js', 'test/**/*.js'])
       .pipe(eslint())
       .pipe(eslint.format());
 });
@@ -79,7 +79,7 @@ gulp.task('watch', function() {
 
   gulp.watch(['client/**/*.js', 'client/**/**/*.js'], ['modules']);
   gulp.watch('client/modules/**/*.css', ['styles']);
-  gulp.watch(['*.js', 'client/**/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'], ['lint']);
+  gulp.watch(['*.js', 'client/**/**/*.js', 'data/*.js', 'test/**/*.js'], ['lint']);
   gulp.watch('client/modules/**/*.tff', ['assets']);
   gulp.watch(['/build/**']).on('change', livereload.changed);
 });
