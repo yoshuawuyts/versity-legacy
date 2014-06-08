@@ -8,7 +8,9 @@ var source = require('vinyl-source-stream');
 var livereload = require('gulp-livereload');
 var browserify = require('browserify');
 var concat = require('gulp-concat');
+var uglify = require('uglifyify');
 var myth = require('gulp-myth');
+var envify = require('envify/custom');
 var gulp = require('gulp');
 
 /**
@@ -23,6 +25,7 @@ module.exports = gulp;
  * Includes css files in the following order
  * /base/reset.css > /base/vars.css > /base/*.css > all other css files.
  */
+ 
 console.log(__dirname)
 gulp.task('styles', function() {
   gulp
@@ -42,6 +45,8 @@ gulp.task('styles', function() {
 
 gulp.task('modules', function() {
   browserify(__dirname + '/client/modules/index/index.js')
+    .transform(envify({NODE_ENV: process.env.NODE_ENV}))
+    .transform({global: true}, 'uglifyify')
     .bundle({debug: true})
     .pipe(source('build.js'))
     .pipe(gulp.dest(__dirname + '/build/'));

@@ -35,7 +35,7 @@ module.exports = app;
 
 if ('test' != process.env.NODE_ENV) app.use(logger());
 app.use(responseTime());
-//app.use(compress());
+app.use(compress());
 app.use(helmet.defaults());
 
 /**
