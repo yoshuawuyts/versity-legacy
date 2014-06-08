@@ -50,17 +50,6 @@ program
   });
 
 /**
- * Watch assets
- */
-
-program
-  .command('watch')
-  .description('rebuild assets on change')
-  .action(function() {
-    gulp.start('watch');
-  });
-
-/**
  * Parse arguments.
  */
 
