@@ -38,20 +38,22 @@ module.exports = react.createClass({
           name: 'viewport', 
           content: 'width=device-width, initial-scale=1'
         }),
-        react.DOM.script({src: reactCDN}),
-        react.DOM.div({
-          dangerouslySetInnerHTML: {
-            __html: '<script>window.React || document.write("<script src=http://assets.site.dev/react.min.js")</script>'
-          }
-        }),
         react.DOM.base({href: 'http://assets.' + host},
           react.DOM.link({rel: 'stylesheet', href:'/build.css'}),
           react.DOM.script({src:'/build.js'}),
           react.DOM.link({rel: 'shortcut icon', href: '/favicon.ico'})
-        ),
-        livereload()
+        )
       ),
-      router({path: this.props.path})
+      react.DOM.body(null,
+        react.DOM.script({src: reactCDN}),
+        react.DOM.script({
+          dangerouslySetInnerHTML: {
+            __html: 'window.React || document.write("<script src=http://assets.site.dev/react.min.js")'
+          }
+        }),
+        livereload(),
+        router({path: this.props.path})
+      )
     )
   }
 });

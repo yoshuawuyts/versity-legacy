@@ -65,7 +65,7 @@ gulp.task('assets', function() {
 
 gulp.task('lint', function() {
   gulp
-    .src(['*.js', 'modules/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'])
+    .src(['*.js', 'client/**/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'])
       .pipe(eslint())
       .pipe(eslint.format());
 });
@@ -75,14 +75,13 @@ gulp.task('lint', function() {
  */
 
 gulp.task('watch', function() {
-  var reload = function(file) {
-    livereload().changed(file.path);
-  };
+  livereload.listen();
 
-  gulp.watch(['client/**/*.js', 'client/**/**/*.js', 'client/**/**/**/*.js'], ['modules']);
+  gulp.watch(['client/**/*.js', 'client/**/**/*.js'], ['modules']);
   gulp.watch('client/modules/**/*.css', ['styles']);
+  gulp.watch(['*.js', 'client/**/**/*.js', 'data/*.js', 'server/**/*.js', 'test/**/*.js'], ['lint']);
   gulp.watch('client/modules/**/*.tff', ['assets']);
-  gulp.watch(['/build/**']).on('change', reload);
+  gulp.watch(['/build/**']).on('change', livereload.changed);
 });
 
 /**
@@ -93,5 +92,6 @@ gulp.task('default', [
   'styles',
   'lint',
   'modules',
-  'assets'
+  'assets',
+  'watch'
 ]);

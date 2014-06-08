@@ -5,6 +5,10 @@
 var react = require('react');
 
 /**
+ * Define vars
+ */
+
+/**
  * Define react class.
  *
  * @return {ReactView}
@@ -13,13 +17,10 @@ var react = require('react');
 module.exports = react.createClass({
   displayName: 'livereload',
   render: function() {
-    if (process.env.NODE_ENV == 'development') {
-      return react.DOM.div({
-        dangerouslySetInnerHTML: {
-          __html: '<script>document.write("<script src=http://localhost:35729/livereload.js?snipver=1"></script>")</script>'
-        }
-      })
+    if (process.env.NODE_ENV != 'production') {
+      return react.DOM.script({
+        src: 'http://localhost:35729/livereload.js?snipver=1'
+      });
     }
-    return null;
   }
-})
+});
