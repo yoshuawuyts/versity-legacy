@@ -18,11 +18,6 @@
   "browserify-shim": {
     "react": "global:React"
   },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
   "author": "Yoshua Wuyts <i@yoshuawuyts.com>",
   "license": "none",
   "bugs": {

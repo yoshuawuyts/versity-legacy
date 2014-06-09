@@ -45,7 +45,8 @@ gulp.task('styles', function() {
  */
 
 gulp.task('modules', function() {
-  browserify(path.join(__dirname, '/client/modules/index/index.js'))
+  browserify(path.join(__dirname, '/client/modules/index/build.js'))
+    .transform('browserify-shim')
     .transform(envify({NODE_ENV: process.env.NODE_ENV}))
     .transform({global: true}, 'uglifyify')
     .bundle({debug: true})
