@@ -21,6 +21,12 @@ var path = require('path');
 module.exports = gulp;
 
 /**
+ * Variables
+ */
+
+var ENV = process.env.NODE_ENV || 'development';
+
+/**
  * Compile CSS
  *
  * Includes css files in the following order
@@ -44,13 +50,24 @@ gulp.task('styles', function() {
  */
 
 gulp.task('modules', function() {
-  browserify(path.join(__dirname, '/client/modules/index/build.js'))
-    .transform('browserify-shim')
-    .transform(envify({NODE_ENV: process.env.NODE_ENV}))
-    .transform({global: true}, 'uglifyify')
-    .bundle({debug: true})
-    .pipe(source('build.js'))
-    .pipe(gulp.dest(path.join(__dirname, '/build/')));
+  if ('development' == ENV) {
+    browserify(path.join(__dirname, '/client/modules/index/build.js'))
+      .transform('browserify-shim')
+      .transform(envify({NODE_ENV: ENV}))
+      .transform({global: true}, 'uglifyify')
+      .bundle({debug: true})
+      .pipe(source('build.js'))
+      .pipe(gulp.dest(path.join(__dirname, '/build/')));
+  }
+
+  if ('development' != ENV) {
+    browserify(path.join(__dirname, '/client/modules/index/build.js'))
+      .transform('browserify-shim')
+      .transform(envify({NODE_ENV: ENV}))
+      .bundle({debug: true})
+      .pipe(source('build.js'))
+      .pipe(gulp.dest(path.join(__dirname, '/build/')));
+  }
 });
 
 /**

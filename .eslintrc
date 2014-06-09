@@ -33,6 +33,7 @@
     // overwrite defaults
     "no-use-before-define": 0,
     "strict": 0,
-    "eqeqeq": 0
+    "eqeqeq": 0,
+    "no-yoda": 0
   }
 }
