@@ -10,7 +10,6 @@ var browserify = require('browserify');
 var envify = require('envify/custom');
 var eslint = require('gulp-eslint');
 var concat = require('gulp-concat');
-var uglify = require('uglifyify');
 var myth = require('gulp-myth');
 var gulp = require('gulp');
 var path = require('path');
@@ -67,8 +66,8 @@ gulp.task('assets', function() {
 gulp.task('lint', function() {
   gulp
     .src(['*.js', 'client/**/**/*.js', 'data/*.js', 'test/**/*.js'])
-      .pipe(eslint())
-      .pipe(eslint.format());
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
 
 /**
