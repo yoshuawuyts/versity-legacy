@@ -16,7 +16,8 @@ var fs = require('fs');
 program
   .option('-p, --port <port>', 'specify the server port [1337]', '1337')
   .option('-t, --task <task>', 'specify the build task [default]', 'default')
-  .option('-e, --environment <env>', 'specify the environment [development]', 'development');
+  .option('-e, --environment <env>', 'specify the environment [development]', 'development')
+  .option('-d, --debug <process>', 'enable debug mode on a process');
 
 program.name = 'versity';
 
@@ -29,9 +30,14 @@ program
   .description('start server')
   .action(function() {
     process.env.NODE_ENV = program.environment;
-    var args = ['--harmony', path.join(__dirname, '/../server/index/index.js')]
+    process.env.DEBUG = program.debug;
+    var args = [
+        '--harmony', 
+        path.join(__dirname, '/../server/index/index.js')
+    ]
       .concat(process.argv.slice(2));
-    spawn(process.argv[0], args, {
+
+    spawn('node', args, {
       env: process.env,
       stdio: [0,1,2]
     });
@@ -46,8 +52,13 @@ program
   .description('build assets')
   .action(function() {
     process.env.NODE_ENV = program.environment;
-    var args = ['--harmony', path.join(__dirname, '/../node_modules/gulp/bin/gulp.js')]
+    process.env.DEBUG = program.debug;
+    var args = [
+      '--harmony', 
+      path.join(__dirname, '/../node_modules/gulp/bin/gulp.js')
+    ]
       .concat(program.task);
+
     spawn(process.argv[0], args, {
       env: process.env,
       stdio: [0,1,2]
