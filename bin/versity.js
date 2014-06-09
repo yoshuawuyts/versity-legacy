@@ -6,6 +6,7 @@
 
 var spawn = require('child_process').spawn;
 var program = require('commander');
+var path = require('path');
 var fs = require('fs');
 
 /**
@@ -28,7 +29,7 @@ program
   .description('start server')
   .action(function() {
     process.env.NODE_ENV = program.environment;
-    var args = ['--harmony', __dirname + '/../server/index/index.js']
+    var args = ['--harmony', path.join(__dirname, '/../server/index/index.js')]
       .concat(process.argv.slice(2));
       
     spawn(process.argv[0], args, {
@@ -46,7 +47,7 @@ program
   .description('build assets')
   .action(function() {
     process.env.NODE_ENV = program.environment;
-    var args = ['--harmony', __dirname + '/../node_modules/gulp/bin/gulp.js']
+    var args = ['--harmony', path.join(__dirname, '/../node_modules/gulp/bin/gulp.js')]
       .concat(program.task);
     spawn(process.argv[0], args, {
       env: process.env,

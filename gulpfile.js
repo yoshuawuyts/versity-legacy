@@ -6,6 +6,7 @@
 
 var source = require('vinyl-source-stream');
 var livereload = require('gulp-livereload');
+var spawn = require('child_process').spawn;
 var browserify = require('browserify');
 var envify = require('envify/custom');
 var eslint = require('gulp-eslint');
@@ -97,9 +98,16 @@ gulp.task('lint', function() {
  */
 
 gulp.task('test', function() {
-  gulp
-    .src(['test/*.js', 'test/**/*.js'])
-    .pipe(mocha())
+  var childProcess = Object.create(process);
+  childProcess.env.NODE_ENV = 'test';
+  var args = [
+    path.join(__dirname, './node_modules/mocha/bin/mocha'), 
+    '--harmony', 
+    '--recursive',
+    '-R',
+    'spec'
+  ];
+  spawn(process.argv[0], args, {stdio: [0,1,2], env: childProcess.env});
 });
 
 /**
