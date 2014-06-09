@@ -6,10 +6,7 @@
 
 var spawn = require('child_process').spawn;
 var program = require('commander');
-var glog = require('gulp-api-log');
 var fs = require('fs');
-
-var gulp = require('../gulpfile.js');
 
 /**
  * Options.
@@ -31,10 +28,10 @@ program
   .description('start server')
   .action(function() {
     process.env.NODE_ENV = program.environment;
-    var args = [ __dirname + '/../server/index/index.js' ]
+    var args = ['--harmony', __dirname + '/../server/index/index.js']
       .concat(process.argv.slice(2));
       
-    spawn(process.argv[0], ['--harmony'].concat(args), {
+    spawn(process.argv[0], args, {
       env: process.env,
       stdio: [0,1,2]
     });
@@ -48,8 +45,13 @@ program
   .command('build')
   .description('build assets')
   .action(function() {
-    glog(gulp);
-    gulp.start(program.task);
+    process.env.NODE_ENV = program.environment;
+    var args = ['--harmony', __dirname + '/../node_modules/gulp/bin/gulp.js']
+      .concat(program.task);
+    spawn(process.argv[0], args, {
+      env: process.env,
+      stdio: [0,1,2]
+    });
   });
 
 /**
