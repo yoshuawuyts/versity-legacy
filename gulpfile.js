@@ -49,6 +49,9 @@ gulp.task('styles', function() {
 
 /**
  * Compile JS
+ *
+ * Minifies only in production mode, makes bug tracking a lot easier while
+ * developing.
  */
 
 gulp.task('modules', function() {
@@ -116,7 +119,6 @@ gulp.task('test', function() {
 
 gulp.task('watch', function() {
   livereload.listen();
-
   gulp.watch(['client/**/**/*.js', 'client/**/**/**/*.js'], ['modules']);
   gulp.watch('client/modules/**/*.css', ['styles']);
   gulp.watch(['*.js', 'client/**/**/*.js', 'data/*.js', 'test/**/*.js'], ['lint', 'test']);
