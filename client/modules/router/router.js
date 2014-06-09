@@ -8,9 +8,9 @@ var react = require('react');
 var settings = require('../../views/settings/settings');
 var course = require('../../views/course/course');
 var search = require('../../views/search/search');
+var notFound = require('../../views/404/404');
 var home = require('../../views/home/home');
 var user = require('../../views/user/user');
-var notFound = require('../../views/404/404');
 
 /**
  * Manage routes.

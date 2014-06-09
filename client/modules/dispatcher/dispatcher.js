@@ -3,6 +3,7 @@
  */
 
 var Dispatcher = require('barracks');
+var index = require('../index/index');
 var dispatcher = Dispatcher();
 
 /**
@@ -15,4 +16,6 @@ module.exports = dispatcher;
  * Register callbacks.
  */
 
-// dispatcher.register()
+dispatcher.register('changeRoute', function(path) {
+  index.forceUpdate.bind({path: path});
+});
