@@ -31,7 +31,6 @@ program
     process.env.NODE_ENV = program.environment;
     var args = ['--harmony', path.join(__dirname, '/../server/index/index.js')]
       .concat(process.argv.slice(2));
-      
     spawn(process.argv[0], args, {
       env: process.env,
       stdio: [0,1,2]

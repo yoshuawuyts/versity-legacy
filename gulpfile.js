@@ -105,7 +105,7 @@ gulp.task('test', function() {
     '--harmony', 
     '--recursive',
     '-R',
-    'spec'
+    'dot'
   ];
   spawn(process.argv[0], args, {stdio: [0,1,2], env: childProcess.env});
 });
