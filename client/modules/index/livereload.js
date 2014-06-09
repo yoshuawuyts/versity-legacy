@@ -22,5 +22,6 @@ module.exports = react.createClass({
         src: 'http://localhost:35729/livereload.js?snipver=1'
       });
     }
+    return react.DOM.div(null);
   }
 });
