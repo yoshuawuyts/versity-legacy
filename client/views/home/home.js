@@ -13,7 +13,7 @@ module.exports = react.createClass({
   displayName: 'home',
 
   render: function() {
-    return react.DOM.div(null, 
+    return react.DOM.div({id: 'index'}, 
       sidebar()
     ); 
   }

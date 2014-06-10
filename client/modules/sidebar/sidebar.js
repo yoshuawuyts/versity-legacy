@@ -20,22 +20,19 @@ module.exports = react.createClass({
 
         react.DOM.ul(null,
           react.DOM.li({className: 'sidebar-title'}, 
-            react.DOM.a({onClick: console.log.bind(console, 'hello')}, 'Guide')
+            react.DOM.a({onClick: console.log.bind(console, 'hello')}, 'Versity')
+          )
+        ),
+        react.DOM.ul(null,
+          react.DOM.li({className: 'sidebar-headline', onClick: handleClick.bind(this, 'learn')},
+            react.DOM.a({href: '/learn'}, 'Learn')
           )
         ),
         react.DOM.ul(null,
           react.DOM.li({className: 'sidebar-headline'},
-            react.DOM.a({href: 'ux', onClick: handleClick.bind(this, 'ux')}, 'UX')
-          ),
-          react.DOM.section(null,
-            react.DOM.li(null,
-              react.DOM.a({href: '/link'}, 'Animations')
-            ),
-            react.DOM.li(null,
-              react.DOM.a({href: '/link'}, 'Buttons')
-            )
+            react.DOM.a({href: '/teach', onClick: handleClick.bind(this, 'teach')}, 'Teach')
           )
-        )  
+        ) 
       )
     );
   }
@@ -48,8 +45,8 @@ module.exports = react.createClass({
  * @api private
  */
 
-function handleClick(url, event) {
+function handleClick(event) {
   console.log('preventdefault');
   event.preventDefault();
-  //dispatcher.dispatch('changeRoute', url);
+  dispatcher.dispatch('changeRoute', '/learn');
 }

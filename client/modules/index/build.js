@@ -7,7 +7,14 @@
 var react = require('react');
 var index = require('./index');
 
+/**
+ * Variables
+ */
+
 var ENV = process.env.NODE_ENV;
+var host = process.env.NODE_ENV == 'production' 
+  ? 'versity.co'
+  : 'versity.dev:' + process.env.port || 1337;
 
 /**
  * Render component on the client.
@@ -19,8 +26,9 @@ var ENV = process.env.NODE_ENV;
 
 module.exports = react.renderComponent(
   index({
-    path: '/',
-    env: 'development'
+    path: window.location.pathname,
+    host: host,
+    env: ENV
   }), 
-  document.getElementsByTagName('html')[0]
+  document
 );

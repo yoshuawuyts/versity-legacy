@@ -41,7 +41,6 @@ app.use(helmet.defaults());
 /**
  * Subdomain routes.
  */
-
 app.use(function *(next) {
   switch (this.subdomains[0]) {
 

@@ -5,10 +5,6 @@
 var react = require('react');
 
 /**
- * Define vars
- */
-
-/**
  * Define react class.
  *
  * @props {String} env

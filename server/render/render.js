@@ -7,7 +7,16 @@ var react = require('react');
 var koa = require('koa');
 
 var index = require('../../client/modules/index/index');
+
+/**
+ * Variables
+ */
+
 var ENV = process.env.NODE_ENV;
+var PORT = process.env.port || 1337;
+var host = process.env.NODE_ENV == 'production' 
+  ? 'versity.co'
+  : 'versity.dev:' + PORT;
 
 /**
  * Initialize 'app'.
@@ -33,43 +42,9 @@ app.get('/favicon.ico', function* (next){})
  */
 
 app.get('/', function* (next) {
-  this.body = react.renderComponentToStaticMarkup(index({
+  this.body = react.renderComponentToString(index({
     path: this.path,
-    env: ENV
-  }));
-});
-
-app.get('/search', function* (next) {
-  this.body = react.renderComponentToStaticMarkup(index({
-    path: this.path,
-    env: ENV
-  }));
-});
-
-app.get('/settings', function* (next) {
-  this.body = react.renderComponentToStaticMarkup(index({
-    path: this.path,
-    env: ENV
-  }));
-});
-
-app.get('/:user', function* (next) {
-  this.body = react.renderComponentToStaticMarkup(index({
-    path: this.path,
-    env: ENV
-  }));
-});
-
-app.get('/:user/:course', function* (next) {
-  this.body = react.renderComponentToStaticMarkup(index({
-    path: this.path,
-    env: ENV
-  }));
-});
-
-app.get('/404', function* (next) {
-  this.body = react.renderComponentToStaticMarkup(index({
-    path: this.path,
+    host: host,
     env: ENV
   }));
 });
