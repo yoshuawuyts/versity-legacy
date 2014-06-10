@@ -41,7 +41,7 @@ app.get('/favicon.ico', function* (next){})
  * Render
  */
 
-app.get('/', function* (next) {
+app.get('*', function* (next) {
   this.body = react.renderComponentToString(index({
     path: this.path,
     host: host,
