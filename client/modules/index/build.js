@@ -19,7 +19,7 @@ var host = process.env.NODE_ENV == 'production'
 /**
  * Render component on the client.
  *
- * This is the entry point for the build task, once all dependencies are loaded
+ * This is the entry point for the build task (gulp), once all dependencies are loaded
  * on the client `renderComponent()` gets triggered and makes all elements
  * dynamic.
  */
@@ -30,5 +30,5 @@ module.exports = react.renderComponent(
     host: host,
     env: ENV
   }), 
-  document
+  window.document
 );
