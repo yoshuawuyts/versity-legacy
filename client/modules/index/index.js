@@ -22,14 +22,15 @@ var reactCDN = process.env.NODE_ENV == 'production'
 /**
  * Define react class.
  *
- * @props {String} markdown
+ * @props {String} path
+ * @props {String} env
  * @return {ReactView}
  */
 
 module.exports = react.createClass({
   displayName: 'Index',
   render: function() {  
-    return react.DOM.html({className: 'no-js'}, 
+    return react.DOM.html({className: 'no-js'},
       react.DOM.head(null, 
         react.DOM.meta({charSet: 'utf-8'}),
         react.DOM.meta({httpEquiv: 'X-UA-Compatible', content: 'IE=edge'}),
@@ -38,14 +39,14 @@ module.exports = react.createClass({
           name: 'viewport', 
           content: 'width=device-width, initial-scale=1'
         }),
-        react.DOM.script({src: reactCDN}),
-        react.DOM.base({href: 'http://assets.' + host},
+        react.DOM.base({href: 'http://assets.' + 'site.dev:1337'},
           react.DOM.link({rel: 'stylesheet', href:'/build.css'}),
-          react.DOM.script({src:'/build.js'}),
-          react.DOM.link({rel: 'shortcut icon', href: '/favicon.ico'})
+          react.DOM.link({rel: 'shortcut icon', href: '/favicon.ico'}),
+          react.DOM.script({src: '/react.js'}),
+          react.DOM.script({src:'/build.js'})
         )
       ),
-      react.DOM.body(null,
+     react.DOM.body(null,
         router({path: this.props.path}),
         react.DOM.div({
           dangerouslySetInnerHTML: {

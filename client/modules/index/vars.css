@@ -5,5 +5,8 @@
  */
 
 :root {
-  var-white: hsla(0, 0%, 100%, 1);
+  --color-sidebar: hsla(206, 11%, 11%, 1);
+  --color-white: white;
+  --color-sidebar-heading: hsla(200, 100%, 75%, 1);
+  --color-sidebar-a: hsl(215, 7%, 52%);
 }

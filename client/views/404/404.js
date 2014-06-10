@@ -3,6 +3,7 @@
  */
 
 var react = require('react');
+var sidebar = require('../../modules/sidebar/sidebar');
 
 /**
  * 'Home' view
