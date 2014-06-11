@@ -12,9 +12,10 @@ var index = require('./index');
  */
 
 var ENV = process.env.NODE_ENV;
-var host = process.env.NODE_ENV == 'production' 
+var PORT = process.env.port || 1337;
+var HOST = process.env.NODE_ENV == 'production' 
   ? 'versity.co'
-  : 'versity.dev:' + process.env.port || 1337;
+  : 'versity.dev:' + PORT
 
 /**
  * Render component on the client.
@@ -27,7 +28,7 @@ var host = process.env.NODE_ENV == 'production'
 module.exports = react.renderComponent(
   index({
     path: window.location.pathname,
-    host: host,
+    host: HOST,
     env: ENV
   }), 
   window.document
