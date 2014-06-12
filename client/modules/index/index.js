@@ -13,7 +13,6 @@ var router = require('../router/router');
 
 var reactCDN = process.env.NODE_ENV == 'production' 
   ? 'http://fb.me/react-0.10.0.min.js'
-  //: 'http://fb.me/react-0.10.0.js';
   : 'http://assets.versity.dev:1337/react.js';
 
 /**
@@ -51,12 +50,7 @@ function render() {
       react.DOM.link({rel: 'stylesheet', href:'http://assets.' + this.props.host + '/build.css'}),
       react.DOM.link({rel: 'shortcut icon', href: 'http://assets.' + this.props.host + '/favicon.ico'}),
       react.DOM.script({src: 'http://assets.versity.dev:1337/react.js'}),
-      react.DOM.script({src:'http://assets.' + this.props.host + '/build.js'})/*
-      react.DOM.div({dangerouslySetInnerHTML: {
-        __html: '<script>window.React || document.write("<script src=http://' 
-          + this.props.host 
-          + '/react.min.js")</script>'
-      }}),*/
+      react.DOM.script({src:'http://assets.' + this.props.host + '/build.js'})
     ),
     // router gets rendered directly on the <body> tag.
     router({path: this.props.path})

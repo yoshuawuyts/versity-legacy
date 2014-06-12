@@ -1,3 +1,5 @@
+/* global window*/
+
 /**
  * Module dependencies
  */
@@ -27,7 +29,7 @@ module.exports = react.createClass({
   componentDidMount: componentDidMount,
   shouldComponentUpdate: shouldComponentUpdate,
   componentDidUpdate: componentDidUpdate,
-  //componentWillUnmount: componentWillUnmount,
+  componentWillUnmount: componentWillUnmount,
   render: render,
   propTypes: {
     path: react.PropTypes.string.isRequired
@@ -48,8 +50,7 @@ function render() {
     router.Page({path: '/settings', handler: settings}),
     router.Page({path: '/404', handler: notFound}),
     router.Page({path: '/:user', handler: user}),
-    router.Page({path: '/:user/:course', handler: course}),
-    router.Page({path: '/learn', handler: home})
+    router.Page({path: '/:user/:course', handler: course})
   );
 }
 
@@ -72,6 +73,9 @@ function componentWillMount() {
 
 function componentDidMount() {
   pathStore.on('update', updateUrl.bind(this));
+  window.onpopstate = function() {
+    dispatcher.dispatch('path_update', window.location.pathname);
+  };
 }
 
 /**
@@ -95,15 +99,16 @@ function shouldComponentUpdate(nextProps, nextState) {
 
 function componentDidUpdate() {
   debug('Changed route to %s', this.state.path);
+  window.history.pushState({}, '', this.state.path);
 }
 
 /**
  * Lifecycle: close all connections
+ */
 
 function componentWillUnmount() {
-
+  pathStore.removeListener('update', updateUrl.bind(this));
 }
- */
 
 /**
  * Update the url

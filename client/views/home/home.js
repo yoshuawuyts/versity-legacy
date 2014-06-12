@@ -13,7 +13,11 @@ module.exports = react.createClass({
   displayName: 'home',
 
   render: function() {
-    return react.DOM.div({id: 'index'}, 
+    return react.DOM.div(null, 
+      react.DOM.p(
+        {style: {color: 'white'}}, 
+        'home'
+      ),
       navbar()
     ); 
   }

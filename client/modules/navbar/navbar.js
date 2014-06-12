@@ -38,17 +38,17 @@ function render() {
       react.DOM.ul(null,
         react.DOM.li({className: 'sidebar-headline'},
           react.DOM.a({
-            href: '/learn', 
+            href: '/search', 
             onClick: handleClick.bind(this, 'learn')
-          }, 'Learn')
+          }, 'Search')
         )
       ),
       react.DOM.ul(null,
         react.DOM.li({className: 'sidebar-headline'},
           react.DOM.a({
-            href: '/teach', 
+            href: '/settings', 
             onClick: handleClick.bind(this, 'teach')
-          }, 'Teach')
+          }, 'Settings')
         )
       ) 
     )
@@ -64,5 +64,5 @@ function render() {
 
 function handleClick(url, event) {
   event.preventDefault();
-  dispatcher.dispatch('path_update', '/search');
+  dispatcher.dispatch('path_update', url);
 }
