@@ -15,7 +15,7 @@ var ENV = process.env.NODE_ENV;
 var PORT = process.env.port || 1337;
 var HOST = process.env.NODE_ENV == 'production' 
   ? 'versity.co'
-  : 'versity.dev:' + PORT
+  : 'versity.dev:' + PORT;
 
 /**
  * Render component on the client.

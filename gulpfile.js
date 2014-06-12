@@ -55,7 +55,7 @@ gulp.task('styles', function() {
  */
 
 gulp.task('modules', function() {
-  if ('development' == ENV) {
+  if ('development' != ENV) {
     browserify(path.join(__dirname, '/client/modules/index/build.js'))
       .transform('browserify-shim')
       .transform(envify({NODE_ENV: ENV}))
@@ -65,9 +65,9 @@ gulp.task('modules', function() {
       .pipe(gulp.dest(path.join(__dirname, '/build/')));
   }
 
-  if ('development' != ENV) {
+  if ('development' == ENV) {
     browserify(path.join(__dirname, '/client/modules/index/build.js'))
-      .transform('browserify-shim')
+      //.transform('browserify-shim')
       .transform(envify({NODE_ENV: ENV}))
       .bundle({debug: true})
       .pipe(source('build.js'))

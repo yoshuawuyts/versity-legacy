@@ -13,7 +13,8 @@ var router = require('../router/router');
 
 var reactCDN = process.env.NODE_ENV == 'production' 
   ? 'http://fb.me/react-0.10.0.min.js'
-  : 'http://fb.me/react-0.10.0.js';
+  //: 'http://fb.me/react-0.10.0.js';
+  : 'http://assets.versity.dev:1337/react.js';
 
 /**
  * Define react class.
@@ -24,7 +25,7 @@ var reactCDN = process.env.NODE_ENV == 'production'
 module.exports = react.createClass({
   displayName: 'Index',
   render: render,
-  componentWillMount: componentWillMount
+  componentDidMount: componentDidMount
 });
 
 /**
@@ -46,30 +47,29 @@ function render() {
         name: 'viewport', 
         content: 'width=device-width, initial-scale=1'
       }),
+      //livereload(),
       react.DOM.link({rel: 'stylesheet', href:'http://assets.' + this.props.host + '/build.css'}),
       react.DOM.link({rel: 'shortcut icon', href: 'http://assets.' + this.props.host + '/favicon.ico'}),
-      react.DOM.script({src: reactCDN}),
-      react.DOM.script({src:'http://assets.' + this.props.host + '/build.js'}),
+      react.DOM.script({src: 'http://assets.versity.dev:1337/react.js'}),
+      react.DOM.script({src:'http://assets.' + this.props.host + '/build.js'})/*
       react.DOM.div({dangerouslySetInnerHTML: {
         __html: '<script>window.React || document.write("<script src=http://' 
           + this.props.host 
           + '/react.min.js")</script>'
-      }}),
-      livereload()
+      }}),*/
     ),
-    react.DOM.body(null,
-      router({path: this.props.path})
-    )
+    // router gets rendered directly on the <body> tag.
+    router({path: this.props.path})
   );
 }
 
 /**
- * Lifecycle: component will mount.
+ * Lifecycle: component did mount.
  *
  * @props {String} path
  * @api private
  */
 
-function componentWillMount() {
+function componentDidMount() {
   dispatcher.dispatch('path_initialize', this.props.path);
 }

@@ -25,21 +25,30 @@ module.exports = react.createClass({
  */ 
 
 function render() {
-  return react.DOM.aside({className: 'sidebar', onClick: handleClick.bind(this)},
+  return react.DOM.aside({className: 'sidebar'},
     react.DOM.nav(null,
       react.DOM.ul(null,
         react.DOM.li({className: 'sidebar-title'}, 
-          react.DOM.a({onClick: handleClick.bind(this)}, 'Versity')
-        )
-      ),
-      react.DOM.ul(null,
-        react.DOM.li({className: 'sidebar-headline', onClick: handleClick.bind(this, 'learn')},
-          react.DOM.a({href: '/learn'}, 'Learn')
+          react.DOM.a({
+            href: '/', 
+            onClick: handleClick.bind(this, '/')
+          }, 'Versity')
         )
       ),
       react.DOM.ul(null,
         react.DOM.li({className: 'sidebar-headline'},
-          react.DOM.a({href: '/teach', onClick: handleClick.bind(this, 'teach')}, 'Teach')
+          react.DOM.a({
+            href: '/learn', 
+            onClick: handleClick.bind(this, 'learn')
+          }, 'Learn')
+        )
+      ),
+      react.DOM.ul(null,
+        react.DOM.li({className: 'sidebar-headline'},
+          react.DOM.a({
+            href: '/teach', 
+            onClick: handleClick.bind(this, 'teach')
+          }, 'Teach')
         )
       ) 
     )
@@ -53,8 +62,7 @@ function render() {
  * @api private
  */
 
-function handleClick(event) {
-  console.log('preventdefault');
+function handleClick(url, event) {
   event.preventDefault();
-  dispatcher.dispatch('changeRoute', '/learn');
+  dispatcher.dispatch('path_update', '/search');
 }

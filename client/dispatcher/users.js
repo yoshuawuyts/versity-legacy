@@ -14,4 +14,4 @@ var usersStore = require('../stores/users');
 exports.add = function add(user) {
   usersStore.add(user);
   console.log(usersStore);
-}
+};

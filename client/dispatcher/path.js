@@ -2,26 +2,26 @@
  * Module dependencies
  */
 
-var pathsStore = require('../stores/users');
+var pathStore = require('../stores/path');
 
 /**
- * Initialize the 'paths' store
+ * Initialize the 'path' store
  *
  * @param {Object} path
  * @api public
  */
 
 exports.initialize = function initialize(path) {
-  pathsStore.add({path: path});
-}
+  pathStore.add({path: path});
+};
 
 /**
- * Update the 'paths' store
+ * Update the 'path' store
  *
  * @param {String} path
  * @api public
  */
 
 exports.update = function update(path) {
-  pathsStore.update(path);
-}
+  pathStore.update({cid: 0, path: path});
+};

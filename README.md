@@ -2,11 +2,8 @@
 Social learning
 
 ## Installation
-````
-npm i -g versity
-versity build
-versity start
-````
+1. Git clone the repository
+2. `npm link`
 
 ## Usage
 ````
@@ -27,11 +24,17 @@ versity start
 ````
 
 ## Development
-In development requests are routed to `site.dev:PORT`, make sure to configure
-your `etc/hosts` to match the configuration.
+Enable the following paths in your `hosts` file:
+```
+127.0.0.1 versity.dev
+127.0.0.1 api.versity.dev
+127.0.0.1 assets.versity.dev
+```
 
-## API
-Place a link to API docs here
+Enable debug mode in the browser console:
+```js
+localStorage.debug = '*'
+```
 
 ## License
 
