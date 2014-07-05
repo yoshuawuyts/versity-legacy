@@ -9,6 +9,7 @@ var react = require('react');
  *
  * @props {String} env
  * @return {ReactView}
+ * @api public
  */
 
 module.exports = react.createClass({

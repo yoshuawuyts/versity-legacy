@@ -18,6 +18,7 @@ var reactCDN = process.env.NODE_ENV == 'production'
 /**
  * Define react class.
  *
+ * @return {ReactView}
  * @api public
  */
 
