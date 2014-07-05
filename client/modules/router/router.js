@@ -4,8 +4,8 @@
  * Module dependencies
  */
 
-var router = require('react-router-component');
 var debug = require('debug')('versity:router');
+var wayfarer = require('wayfarer');
 var react = require('react');
 var settings = require('../../views/settings/settings');
 var dispatcher = require('../../dispatcher/dispatcher');
@@ -15,6 +15,7 @@ var notFound = require('../../views/404/404');
 var pathStore = require('../../stores/path');
 var home = require('../../views/home/home');
 var user = require('../../views/user/user');
+var router = wayfarer();
 
 /**
  * Manage routes.
@@ -44,21 +45,19 @@ module.exports = react.createClass({
  */
 
 function render() {
-  return router.Pages({path: this.state.path}, 
-    router.Page({path: '/', handler: home}),
-    router.Page({path: '/search', handler: search}),
-    router.Page({path: '/settings', handler: settings}),
-    router.Page({path: '/404', handler: notFound}),
-    router.Page({path: '/:user', handler: user}),
-    router.Page({path: '/:user/:course', handler: course})
-  );
+  router
+    .path('/', home)
+    .path('/search', search)
+    .path('/settings', settings)
+    .path('/404', notFound)
+    .path('/:user', user)
+    .path('/:user/:course', course);
+
+  return router.match(this.state.path);
 }
 
 /**
  * Lifecycle: componentWillMount
- * Set initial state.
- *
- * @api private
  */
 
 function componentWillMount() {
@@ -67,8 +66,6 @@ function componentWillMount() {
 
 /**
  * Lifecycle: listen to changes in 'path'.
- *
- * @api private
  */
 
 function componentDidMount() {
@@ -80,11 +77,6 @@ function componentDidMount() {
 
 /**
  * Lifecycle: determine if component must update
- *
- * @param {Object} nextProps
- * @param {Object} nextState
- * @return {Boolean}
- * @api private
  */
 
 function shouldComponentUpdate(nextProps, nextState) {
@@ -93,8 +85,6 @@ function shouldComponentUpdate(nextProps, nextState) {
 
 /**
  * Lifecycle: log if component updated
- *
- * @api private
  */
 
 function componentDidUpdate() {
@@ -114,6 +104,7 @@ function componentWillUnmount() {
  * Update the url
  *
  * @param {Object} url
+ * @api private
  */
 
 function updateUrl(newUrl) {
