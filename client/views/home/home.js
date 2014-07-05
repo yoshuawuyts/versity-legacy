@@ -14,10 +14,7 @@ module.exports = react.createClass({
 
   render: function() {
     return react.DOM.div(null, 
-      react.DOM.p(
-        {style: {color: 'white'}}, 
-        'home'
-      ),
+      react.DOM.p({style: {color: 'white'}}, 'home'),
       navbar()
     ); 
   }

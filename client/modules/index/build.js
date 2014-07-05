@@ -13,8 +13,7 @@ var index = require('./index');
 
 var ENV = process.env.NODE_ENV;
 var PORT = process.env.port || 1337;
-var HOST = process.env.NODE_ENV == 'production' 
-  ? 'versity.co'
+var HOST = process.env.NODE_ENV == 'production' ? 'versity.co'
   : 'versity.dev:' + PORT;
 
 /**
