@@ -32,7 +32,7 @@ program
     process.env.NODE_ENV = program.environment;
     process.env.DEBUG = program.debug;
     var args = [
-        '--harmony', 
+        '--harmony',
         path.join(__dirname, '/../server/index/index.js')
     ]
       .concat(process.argv.slice(2));
