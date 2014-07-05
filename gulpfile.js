@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Module dependencies
  */
@@ -11,7 +9,6 @@ var browserify = require('browserify');
 var envify = require('envify/custom');
 var eslint = require('gulp-eslint');
 var concat = require('gulp-concat');
-var mocha = require('gulp-mocha');
 var myth = require('gulp-myth');
 var gulp = require('gulp');
 var path = require('path');
@@ -111,6 +108,17 @@ gulp.task('test', function() {
     'dot'
   ];
   spawn(process.argv[0], args, {stdio: [0,1,2], env: childProcess.env});
+
+  var childProcessC = Object.create(process);
+  childProcessC.env.NODE_ENV = 'test';
+  var argsC = [
+    '--harmony',
+    path.join(__dirname, './node_modules/cucumber/bin/cucumber'),
+    './test',
+    '-f',
+    'summary'
+  ];
+  spawn(process.argv[0], argsC, {stdio: [0,1,2], env: childProcessC.env});
 });
 
 /**
