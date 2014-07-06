@@ -11,6 +11,7 @@ var settings = require('../../views/settings/settings');
 var dispatcher = require('../../dispatcher/dispatcher');
 var course = require('../../views/course/course');
 var search = require('../../views/search/search');
+var login = require('../../views/login/login');
 var notFound = require('../../views/404/404');
 var pathStore = require('../../stores/path');
 var home = require('../../views/home/home');
@@ -46,10 +47,14 @@ module.exports = react.createClass({
 
 function render() {
   router
+    .default('404')
     .path('/', home)
-    .path('/search', search)
-    .path('/settings', settings)
-    .path('/404', notFound)
+    .path('404', notFound)
+    .path('login', login)
+    .path('search', search)
+    .path('settings', settings)
+    .path('learn', settings)
+    .path('teach', settings)
     .path('/:user', user)
     .path('/:user/:course', course);
 

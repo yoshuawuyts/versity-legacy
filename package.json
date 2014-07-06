@@ -29,6 +29,7 @@
     "browserify": "^4.1.8",
     "browserify-shim": "^3.5.0",
     "commander": "^2.2.0",
+    "dad": "^0.3.0",
     "envify": "^1.2.1",
     "eslint": "^0.6.2",
     "gulp": "^3.7.0",
@@ -51,11 +52,11 @@
     "react-router-component": "^0.18.3",
     "uglifyify": "^2.4.0",
     "vinyl-source-stream": "^0.1.1",
-    "wayfarer": "^1.0.1"
+    "wayfarer": "^1.1.0"
   },
   "devDependencies": {
     "cucumber": "^0.4.0",
-    "debug": "^0.8.1",
+    "debug": "^1.0.2  ",
     "jsdom": "^0.11.0",
     "mocha": "^1.18.2",
     "should": "^3.3.1",
