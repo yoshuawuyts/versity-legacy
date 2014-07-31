@@ -14,8 +14,8 @@ var search = require('../../views/search/search');
 var login = require('../../views/login/login');
 var notFound = require('../../views/404/404');
 var pathStore = require('../../stores/path');
-var home = require('../../views/home/home');
 var user = require('../../views/user/user');
+var home = require('../../views/home');
 var router = wayfarer();
 
 /**
@@ -47,18 +47,18 @@ module.exports = react.createClass({
 
 function render() {
   router
-    .default('404')
+    //.default('404')
     .path('/', home)
     .path('404', notFound)
     .path('login', login)
     .path('search', search)
     .path('settings', settings)
     .path('learn', settings)
-    .path('teach', settings)
-    .path('/:user', user)
-    .path('/:user/:course', course);
+    .path('teach', settings);
+    //.path('/:user', user)
+    //.path('/:user/:course', course);
 
-  return router.match(this.state.path);
+  return router.match('/');
 }
 
 /**

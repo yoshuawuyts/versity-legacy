@@ -3,8 +3,8 @@
  */
 
 var Dispatcher = require('barracks');
-var path = require('./path');
 var users = require('./users');
+var path = require('./path');
 
 /**
  * Initialize 'Dispatcher'

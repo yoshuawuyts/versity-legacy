@@ -11,7 +11,14 @@ var usersStore = require('../stores/users');
  * @api public
  */
 
-exports.add = function add(user) {
+exports.add = function(user) {
   usersStore.add(user);
-  console.log(usersStore);
+};
+
+/**
+ * Validate a target against the .
+ */
+
+exports.validate = function() {
+  usersStore.validate();
 };

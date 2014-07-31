@@ -28,12 +28,13 @@
     "no-spaced-func": 2,
     "no-space-before-semi": 2,
     "space-unary-word-ops": 2,
-    "quotes": [2, "single"],
+    "quotes": [2, "single", "avoid-escape"],
 
     // overwrite defaults
     "no-use-before-define": 0,
     "strict": 0,
     "eqeqeq": 0,
-    "no-yoda": 0
+    "no-yoda": 0,
+    "curly": 0
   }
 }

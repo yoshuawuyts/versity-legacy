@@ -129,7 +129,7 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch(['client/**/**/*.js', 'client/**/**/**/*.js'], ['modules']);
   gulp.watch('client/modules/**/*.css', ['styles']);
-  gulp.watch(['*.js', 'client/**/**/*.js', 'data/*.js', 'test/**/*.js'], ['lint', 'test']);
+  gulp.watch(['*.js', 'client/**/**/*.js', 'data/*.js', 'test/**/*.js'], ['lint']);
   gulp.watch('client/modules/**/*.tff', ['assets']);
   gulp.watch(['/build/**']).on('change', livereload.changed);
 });
@@ -143,6 +143,5 @@ gulp.task('default', [
   'modules',
   'assets',
   'lint',
-  'test',
   'watch'
 ]);

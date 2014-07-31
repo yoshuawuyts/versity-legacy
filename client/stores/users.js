@@ -21,4 +21,9 @@ module.exports = users;
  */
 
 users
-  .attr('name');
+  .attr('userName', {type: 'string', required: true})
+  .attr('firstName', {type: 'string', required: true})
+  .attr('lastName', {type: 'string', required: true})
+  .attr('email', {type: /^.+@.+\..+$/, required: true})
+  .attr('gender', {type: 'string'})
+  .attr('password', {type: 'string'});
