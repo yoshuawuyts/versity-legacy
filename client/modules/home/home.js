@@ -12,7 +12,7 @@ var dispatcher = require('../../dispatcher/dispatcher');
  */
 
 module.exports = react.createClass({
-  displayName: 'navbar',
+  displayName: 'home',
   render: render
 });
 
@@ -24,5 +24,5 @@ module.exports = react.createClass({
  */ 
 
 function render() {
-  return react.DOM.div({className: 'navbar'});
+  return react.DOM.div({className: 'home'});
 }

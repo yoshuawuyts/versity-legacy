@@ -8,5 +8,7 @@
   --color-sidebar: hsla(206, 11%, 11%, 1);
   --color-white: white;
   --color-sidebar-heading: hsla(200, 100%, 75%, 1);
-  --color-sidebar-a: hsl(215, 7%, 52%);
+  --color-sidebar-a: hsla(215, 7%, 52%, 1);
+  --color-versity-yellow: hsla(53, 100%, 75%, 1);
+  --color-versity-red: hsla(6, 100%, 67%, 1);
 }

@@ -37,5 +37,4 @@ localStorage.debug = '*'
 ```
 
 ## License
-
 All rights reserved © [Yoshua Wuyts](yoshawuyts.com)

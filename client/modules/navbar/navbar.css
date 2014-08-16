@@ -1,75 +1,12 @@
 /**
- * Container
+ * Navbar.
  */
 
-.sidebar {
+.navbar {
   top: 0;
-  left: 0;
-  width: 240px;
-  height: 100%;
+  height: 84px;
+  width: 100%;
   position: absolute;
-  background-color: var(--color-sidebar);
+  background-color: var(--color-versity-yellow);
 }
 
-.sidebar nav {
-  margin-top: 70px;
-  margin-left: 70px;
-  margin-right: 70px;
-  width: 100px;
-  padding-left: 0;
-  list-style: none;
-}
-
-/**
- * Section
- */
-
-.sidebar ul {
-  margin-bottom: 35px;
-}
-
-/**
- * Base sidebar links
- */
-
-.sidebar a {
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: normal;
-  font-family: SourceSansPro;
-  text-decoration: none;
-  color: var(--color-sidebar-a);
-  transition: all 0.2s ease;
-}
-
-.sidebar a:hover {
-  color: var(--color-white);
-}
-
-/**
- * Sidebar section heading
- */
-
-li.sidebar-headline,
-li.sidebar-headline a {
-  margin-bottom: 10px;
-  font-size: 15px;
-  line-height: 15px;
-  font-weight: 600;
-  color: var(--color-sidebar-heading);
-}
-
-li.sidebar-headline a:hover {
-  color: var(--color-white);
-}
-
-/**
- * Sidebar main heading
- */
-
-.sidebar-title a {
-  font-size: 17px;
-  line-height: 17px;
-  font-weight: 600;
-  color: var(--color-white);
-}
