@@ -11,7 +11,7 @@ var react = require('react');
  */
 
 module.exports = react.createClass({
-  displayName: 'navbar',
+  displayName: 'course',
   render: render
 });
 
@@ -23,5 +23,5 @@ module.exports = react.createClass({
  */
 
 function render() {
-  return react.DOM.nav({className: 'navbar'});
+  return react.DOM.section({className: 'section-course'});
 }

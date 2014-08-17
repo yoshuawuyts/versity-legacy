@@ -6,7 +6,6 @@
   top: 0;
   height: 84px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   background-color: var(--color-versity-yellow);
 }
-

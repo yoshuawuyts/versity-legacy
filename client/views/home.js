@@ -21,9 +21,9 @@ module.exports = react.createClass({
  */
 
 function render() {
-  return react.DOM.div({className: 'root-section'}, 
+  return react.DOM.div({className: 'root-section'},
     navbar(),
     sidebar(),
     home()
-  ); 
+  );
 }
