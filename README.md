@@ -1,6 +1,10 @@
 # Versity
 Social learning
 
+## Notice
+This repo is deprecated. It only exists because publishing beats deleting.
+Laughing at design decisions made by past me is encouraged; I laugh at 'em too.
+
 ## Installation
 1. Git clone the repository
 2. `npm link`
